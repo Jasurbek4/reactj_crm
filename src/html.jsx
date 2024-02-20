@@ -33,7 +33,7 @@ class CrmMin extends Component {
         <Main>
           <Web>Webbrain.crm</Web>
           <Profil>
-            <Img src="https://e7.pngegg.com/pngimages/136/22/png-clipart-user-profile-computer-icons-girl-customer-avatar-angle-heroes-thumbnail.png" alt="" />
+            <Img src="https://e7.pngegg.com/pngimages/136/22/png-clipart-user-profile-computer-icons-girl-customer-avatar-angle-heroes-thumbnail.png" alt="no img" />
             <div>
               <Name>Jasur Anorbekov</Name>
               <Gmail>j.anorbekov@gmail.com</Gmail>
