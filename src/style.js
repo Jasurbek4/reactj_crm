@@ -29,6 +29,7 @@ export const Web = styled.div`
   text-transform: uppercase;
   height: 25px;
   color: #1890ff;
+  cursor: pointer;
 `;
 
 export const Profil = styled.div`
@@ -145,6 +146,72 @@ export const Icon = styled.i`
   margin-right: 15px;
 `;
 
+export const Modal = styled.div`
+  width: 497px;
+  height: 284px;
+  border-radius: 8px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: hsla(0, 0%, 40%, .6);
+`;
 
+export const MinContainer = styled.div`
+  margin: 0 auto;
+`;
 
+export const MinModal = styled.div`
+  width: 92%;
+  height: 89%;
+  display: grid;
+  justify-content: space-between;
+  row-gap: 0.5rem;
+  font-family: "Roboto", sans-serif;
+  padding: 20px 24px 20px 24px;
+  border-radius: 0.5rem;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  background: #fff;
+`;
+
+export const CancelButton = styled.button`
+  width: 70px;
+  height: 30px;
+  border-radius: 8px;
+  overflow: hidden;
+  border-color: red;
+  color: red;
+  margin-left: 300px;
+`;
+
+export const OkButton = styled.button`
+  width: 70px;
+  height: 30px;
+  margin-left: 5px;
+  border-radius: 8px;
+  border-radius: #1890FF;
+  background: #1890FF;
+`;
+
+export const Brand = styled.div`
+  font-family: Montserrat;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #56595e;
+`;
+
+export const BrandName = styled.div`
+  font-family: Montserrat;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 28px;
+  letter-spacing: 0em;
+  text-align: left;
+  margin-left: 30px;
+`;
 

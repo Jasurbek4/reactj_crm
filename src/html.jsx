@@ -1,37 +1,68 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import { Web, Asosiy, AnaMin, Analitika, Ichki, Icon, Img, BirXil, Container, ChevronRight, Main, Profil, Name, Gmail } from "./style";
 
-class CrmMin extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      showTalabalar: false,
-      showLidlar: false,
-      showGuruhlar: false,
-      showKurslar: false,
-      showHr: false,
-      showSozlamalar: false
-    };
-  }
+const CrmMin = () => {
+  const [showWeb, setShowWeb] = useState(false);
+  const [showTalabalar, setShowTalabalar] = useState(false);
+  const [showLidlar, setShowLidlar] = useState(false);
+  const [showGuruhlar, setShowGuruhlar] = useState(false);
+  const [showKurslar, setShowKurslar] = useState(false);
+  const [showHr, setShowHr] = useState(false);
+  const [showSozlamalar, setShowSozlamalar] = useState(false);
 
-  inOpen = (type) => {
-    this.setState((prevState) => ({
-      showTalabalar: type === "talabalar" ? !prevState.showTalabalar : prevState.showTalabalar,
-      showLidlar: type === "lidlar" ? !prevState.showLidlar : prevState.showLidlar,
-      showGuruhlar: type === "guruhlar" ? !prevState.showGuruhlar : prevState.showGuruhlar,
-      showKurslar: type === "kurslar" ? !prevState.showKurslar : prevState.showKurslar,
-      showHr: type === "hr" ? !prevState.showHr : prevState.showHr,
-      showSozlamalar: type === "sozlamalar" ? !prevState.showSozlamalar : prevState.showSozlamalar
-    }));
+  const cancelHandler = () => {
+    setShowWeb(false);
   };
 
-  render() {
-    const { showTalabalar, showLidlar, showGuruhlar, showKurslar, showHr, showSozlamalar } = this.state;
+  const saveHandler = () => {
+    setShowWeb(false);
+  };
 
-    return (
+  const inOpen = (type) => {
+    switch (type) {
+      case "talabalar":
+        setShowTalabalar(!showTalabalar);
+        break;
+      case "lidlar":
+        setShowLidlar(!showLidlar);
+        break;
+      case "guruhlar":
+        setShowGuruhlar(!showGuruhlar);
+        break;
+      case "kurslar":
+        setShowKurslar(!showKurslar);
+        break;
+      case "hr":
+        setShowHr(!showHr);
+        break;
+      case "sozlamalar":
+        setShowSozlamalar(!showSozlamalar);
+        break;
+      default:
+        break;
+    }
+  };
+
+  return (
+    <div className="minContainer">
+      {showWeb && (
+        <div className="Modal">
+          <div className={showWeb ? "minModal show" : "minModal"}>
+            <div className="overlay"></div>
+            <div className="brand">Brand:</div>
+            <div className="brandname">WebBrain</div>
+            <div className="brand">Name:</div>
+            <div className="brandname"> Jasur Anorbekov</div>
+            <div className="button">
+              <button className="cancel" onClick={cancelHandler}>Cancel</button>
+              <button className="ok" onClick={saveHandler}>Save</button>
+            </div>
+          </div>
+        </div>
+      )}
       <Container>
         <Main>
-          <Web>Webbrain.crm</Web>
+          <Web onClick={() => setShowWeb(true)}>Webbrain.crm</Web>
           <Profil>
             <Img src="https://e7.pngegg.com/pngimages/136/22/png-clipart-user-profile-computer-icons-girl-customer-avatar-angle-heroes-thumbnail.png" alt="no img" />
             <div>
@@ -46,7 +77,7 @@ class CrmMin extends Component {
             </AnaMin>
           </Analitika>
           <BirXil>
-            <Asosiy onClick={() => this.inOpen("lidlar")}>
+            <Asosiy onClick={() => inOpen("lidlar")}>
               <Icon className="fa-regular fa-pen-to-square"></Icon>
               Lidlar
               <ChevronRight className="fa-solid fa-chevron-right"></ChevronRight>
@@ -66,7 +97,7 @@ class CrmMin extends Component {
             </Asosiy>
           </Analitika>
           <BirXil>
-            <Asosiy onClick={() => this.inOpen("talabalar")}>
+            <Asosiy onClick={() => inOpen("talabalar")}>
               <Icon className="fa-solid fa-graduation-cap"></Icon>
               Talabalar
               <ChevronRight className="fa-solid fa-chevron-right"></ChevronRight>
@@ -82,7 +113,7 @@ class CrmMin extends Component {
             )}
           </BirXil>
           <BirXil>
-            <Asosiy onClick={() => this.inOpen("guruhlar")}>
+            <Asosiy onClick={() => inOpen("guruhlar")}>
               <Icon className="fa-solid fa-user-group"></Icon>
               Guruhlar
               <ChevronRight className="fa-solid fa-chevron-right"></ChevronRight>
@@ -96,7 +127,7 @@ class CrmMin extends Component {
             )}
           </BirXil>
           <BirXil>
-            <Asosiy onClick={() => this.inOpen("kurslar")}>
+            <Asosiy onClick={() => inOpen("kurslar")}>
               <Icon className="fa-solid fa-book-bookmark"></Icon>
               Kurslar
               <ChevronRight className="fa-solid fa-chevron-right"></ChevronRight>
@@ -109,7 +140,7 @@ class CrmMin extends Component {
             )}
           </BirXil>
           <BirXil>
-            <Asosiy onClick={() => this.inOpen("hr")}>
+            <Asosiy onClick={() => inOpen("hr")}>
               <Icon className="fa-solid fa-briefcase"></Icon>
               HR
               <ChevronRight className="fa-solid fa-chevron-right"></ChevronRight>
@@ -122,7 +153,7 @@ class CrmMin extends Component {
             )}
           </BirXil>
           <BirXil>
-            <Asosiy onClick={() => this.inOpen("sozlamalar")}>
+            <Asosiy onClick={() => inOpen("sozlamalar")}>
               <Icon className="fa-solid fa-gear"></Icon>
               Sozlamalar
               <ChevronRight className="fa-solid fa-chevron-right"></ChevronRight>
@@ -138,8 +169,8 @@ class CrmMin extends Component {
           </BirXil>
         </Main>
       </Container>
-    );
-  }
-}
+    </div>
+  );
+};
 
 export default CrmMin;
